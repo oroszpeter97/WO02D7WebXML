@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OP_orarend>
+    <ora id="0" tipus="elmelet">
+        <targy>Web Technológia 1.</targy>
+        <idopont>
+            <nap>Hétfő</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>V. EA.</helyszin>
+        <oktato>Agárdi Anita</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="1" tipus="eloadas">
+        <targy>Valószínűség Számítás</targy>
+        <idopont>
+            <nap>Hétfő</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>XV. EA.</helyszin>
+        <oktato>Fegyverneki Sándor</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="2" tipus="gyakorlat">
+        <targy>Web Technológia 1.</targy>
+        <idopont>
+            <nap>Hétfő</nap>
+            <tol>14:00</tol>
+            <ig>16:00</ig>
+        </idopont>
+        <helyszin>In/101</helyszin>
+        <oktato>Agárdi Anita</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="3" tipus="eloadas">
+        <targy>Mesterséges Intelligencia</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>08:00</tol>
+            <ig>10:00</ig>
+        </idopont>
+        <helyszin>XXXII. EA.</helyszin>
+        <oktato>Kunné Dr. Tamás Judit</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="4" tipus="gyakorlat">
+        <targy>Mesterséges Intelligencia</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>XXXII. EA.</helyszin>
+        <oktato>Fazekas Levente Áron</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="5" tipus="gyakorlat">
+        <targy>Valószínűség Számítás</targy>
+        <idopont>
+            <nap>Kedd</nap>
+            <tol>12:00</tol>
+            <ig>14:00</ig>
+        </idopont>
+        <helyszin>A/1 316.</helyszin>
+        <oktato>Tóth Norbert</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="6" tipus="eloadas">
+        <targy>Adatkezelés XML-ben</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>08:00</tol>
+            <ig>10:00</ig>
+        </idopont>
+        <helyszin>A/1 310.</helyszin>
+        <oktato>Kovács József</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="7" tipus="eloadas">
+        <targy>Adatkezelés XML-ben</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>10:00</tol>
+            <ig>12:00</ig>
+        </idopont>
+        <helyszin>In/103</helyszin>
+        <oktato>Bednarik László</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="8" tipus="eloadas">
+        <targy>Vállalati Információs Rendszerek</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>14:00</tol>
+            <ig>16:00</ig>
+        </idopont>
+        <helyszin>In/103</helyszin>
+        <oktato>Dr. Sasvári Péter László</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+    <ora id="9" tipus="gyakorlat">
+        <targy>Vállalati Információs Rendszerek</targy>
+        <idopont>
+            <nap>Szerda</nap>
+            <tol>18:00</tol>
+            <ig>20:00</ig>
+        </idopont>
+        <helyszin>In/103</helyszin>
+        <oktato>Dr. Sasvári Péter László</oktato>
+        <szak>Programtervező Informatikus</szak>
+    </ora>
+</OP_orarend>
