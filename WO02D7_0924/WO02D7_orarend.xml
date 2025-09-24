@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE OP_orarend SYSTEM "WO02D7_orarend.dtd">
+
 <OP_orarend>
-    <ora id="egy" tipus="elmelet">
+    <ora id="egy" tipus="eloadas">
         <targy>Web Technológia 1.</targy>
         <idopont>
             <nap>Hétfő</nap>
