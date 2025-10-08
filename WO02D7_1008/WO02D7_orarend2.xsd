@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WO02D7_orarend1.xsd
+     XML Schema for WO02D7_orarend.xml (custom types included)
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- =========================
+       Simple (custom) types
+       ========================= -->
+
+  <!-- ID type: small token (no spaces) -->
+  <xs:simpleType name="IDType">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[A-Za-z0-9_\-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Type of lesson: enumerated -->
+  <xs:simpleType name="TipusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="eloadas"/>
+      <xs:enumeration value="gyakorlat"/>
+      <!-- you can add more types if needed -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Weekday names in Hungarian (based on your samples) -->
+  <xs:simpleType name="NapType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hétfő"/>
+      <xs:enumeration value="Kedd"/>
+      <xs:enumeration value="Szerda"/>
+      <xs:enumeration value="Csütörtök"/>
+      <xs:enumeration value="Péntek"/>
+      <xs:enumeration value="Szombat"/>
+      <xs:enumeration value="Vasárnap"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Time type HH:MM (24-hour) -->
+  <xs:simpleType name="TimeType">
+    <xs:restriction base="xs:string">
+      <!-- pattern ensures 00:00 - 23:59 -->
+      <xs:pattern value="([01]\d|2[0-3]):[0-5]\d"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Generic text for subject/room/profession, trimmed -->
+  <xs:simpleType name="TextType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Name of instructor: allow letters, spaces, dots, accents -->
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\.\-'\s]{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Room type: allow letters, numbers, slash, dot and spaces -->
+  <xs:simpleType name="RoomType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9\./\s\-ÁÉÍÓÖŐÚÜŰáéíóöőúüű]{1,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- =========================
+       Complex types
+       ========================= -->
+
+  <!-- idopont: nap + tol + ig -->
+  <xs:complexType name="IdopontType">
+    <xs:sequence>
+      <xs:element name="nap" type="NapType"/>
+      <xs:element name="tol" type="TimeType"/>
+      <xs:element name="ig" type="TimeType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ora element -->
+  <xs:complexType name="OraType">
+    <xs:sequence>
+      <xs:element name="targy" type="TextType"/>
+      <xs:element name="idopont" type="IdopontType"/>
+      <xs:element name="helyszin" type="RoomType"/>
+      <xs:element name="oktato" type="NameType"/>
+      <xs:element name="szak" type="TextType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="IDType" use="required"/>
+    <xs:attribute name="tipus" type="TipusType" use="required"/>
+  </xs:complexType>
+
+  <!-- =========================
+       Root element
+       ========================= -->
+
+  <xs:element name="OP_orarend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ora" type="OraType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
