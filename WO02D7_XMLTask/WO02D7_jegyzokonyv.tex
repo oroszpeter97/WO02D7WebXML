@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage[hungarian]{babel}
+\usepackage{mathptmx} % Times New Roman font
+\usepackage{titlesec} % For customizing section titles
+\usepackage{ragged2e} % For justified text alignment
+\usepackage{setspace} % For line spacing
+\usepackage[margin=2.5cm]{geometry} % Margin settings
+\usepackage[hidelinks]{hyperref} % Enable hyperlinks in TOC
+
+% Set section to 14pt font size
+\titleformat{\section}
+  {\normalfont\fontsize{14}{16}\bfseries}{\thesection}{1em}{}
+
+% Set subsection to 12pt font size
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+    \onehalfspacing % Set line spacing to 1.5
+    \justifying % Justify text alignment
+
+    \begin{titlepage}
+        \centering
+        \vspace*{0.25\textheight}
+        {\fontsize{64}{32}\bfseries Jegyzőkönyv \par}
+        \vspace{1.5em}
+        {\fontsize{25}{64}\normalfont Webes adatkezelő környezetek \par}
+        \vspace{1em}
+        {\fontsize{25}{32}\normalfont Féléves feladat \par}
+        \vspace{1em}
+        {\fontsize{25}{32}\normalfont A feladat címe \par}
+        \vspace*{0.20\textheight}
+
+        \begin{flushright}
+            \begin{tabular}{@{}l@{}}
+                {\fontsize{14}{14}\normalfont Készítette: Orosz Péter} \\
+                {\fontsize{14}{14}\normalfont Neptun kód: WO02D7} \\
+                {\fontsize{14}{14}\normalfont Dátum: ....-..-..} \\
+            \end{tabular}
+        \end{flushright}
+    \end{titlepage}
+
+    \tableofcontents
+    \newpage
+
+    \section*{Bevezetés}
+    \addcontentsline{toc}{section}{Bevezetés}
+
+    \section*{A feladat leírása}
+    \addcontentsline{toc}{section}{A feladat leírása}
+
+    \section{Első feladat címe}
+        \subsection{Az adatbázis ER model tervezése}
+        \subsection{Az adatbázis konvertálása XDM modellre}
+        \subsection{Az XDM modell alapján XML dokumentum készítése}
+        \subsection{Az XML dokumentum alapján XMLSchema készítése}
+\end{document}
