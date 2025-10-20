@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BookStore
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="WO02D7_XMLSchema.xsd"
+>
+
+    <!-- Customer Information -->
+    <Customer CustomerId="C001">
+        <Name>John Doe</Name>
+        <Email>john.doe@example.com</Email>
+        <Email>john.doe2@example.com</Email>
+        <RegistrationDate>2022-01-15</RegistrationDate>
+    </Customer>
+    <Customer CustomerId="C002">
+        <Name>Jane Smith</Name>
+        <Email>jane.smith@example.com</Email>
+        <Email>jane.smith2@example.com</Email>
+        <RegistrationDate>2022-02-20</RegistrationDate>
+    </Customer>
+    <Customer CustomerId="C003">
+        <Name>Emily Johnson</Name>
+        <Email>emily.johnson@example.com</Email>
+        <Email>emily.johnson2@example.com</Email>
+        <RegistrationDate>2022-03-10</RegistrationDate>
+    </Customer>
+
+    <!-- Profile Information -->
+    <Profile ProfileId="P001" CustomerId="C001">
+        <Address>
+            <City>Springfield</City>
+            <Street>123 Main St</Street>
+            <Number>1A</Number>
+        </Address>
+        <PhoneNumber> +1-555-1234</PhoneNumber>
+        <PhoneNumber> +1-555-5678</PhoneNumber>
+        <PaymentMethod>1234-5678-9012-3456</PaymentMethod>
+        <PaymentMethod>9876-5432-1098-7654</PaymentMethod>
+        <PaymentMethod>5678-1234-8765-4321</PaymentMethod>
+    </Profile>
+    <Profile ProfileId="P002" CustomerId="C002">
+        <Address>
+            <City>Shelbyville</City>
+            <Street>456 Elm St</Street>
+            <Number>2B</Number>
+        </Address>
+        <PhoneNumber> +1-555-8765</PhoneNumber>
+        <PhoneNumber> +1-555-4321</PhoneNumber>
+        <PaymentMethod>2345-6789-0123-4567</PaymentMethod>
+        <PaymentMethod>8765-4321-0987-6543</PaymentMethod>
+        <PaymentMethod>6789-2345-9876-5432</PaymentMethod>
+    </Profile>
+    <Profile ProfileId="P003" CustomerId="C003">
+        <Address>
+            <City>Ogdenville</City>
+            <Street>789 Oak St</Street>
+            <Number>3C</Number>
+        </Address>
+        <PhoneNumber> +1-555-2468</PhoneNumber>
+        <PhoneNumber> +1-555-1357</PhoneNumber>
+        <PaymentMethod>3456-7890-1234-5678</PaymentMethod>
+        <PaymentMethod>9876-5432-1098-7654</PaymentMethod>
+        <PaymentMethod>4567-8901-2345-6789</PaymentMethod>
+    </Profile>
+
+     <!-- Order Information -->
+    <Order OrderId="O001" CustomerId="C001">
+        <Date>2022-05-01</Date>
+        <Status>Shipped</Status>
+    </Order>
+    <Order OrderId="O002" CustomerId="C002">
+        <Date>2022-06-15</Date>
+        <Status>Processing</Status>
+    </Order>
+    <Order OrderId="O003" CustomerId="C003">
+        <Date>2022-07-20</Date>
+        <Status>Delivered</Status>
+    </Order>
+    <Order OrderId="O004" CustomerId="C001">
+        <Date>2022-08-05</Date>
+        <Status>Cancelled</Status>
+    </Order>
+    <Order OrderId="O005" CustomerId="C002">
+        <Date>2022-09-10</Date>
+        <Status>Shipped</Status>
+    </Order>
+    <Order OrderId="O006" CustomerId="C003">
+        <Date>2022-10-25</Date>
+        <Status>Processing</Status>
+    </Order>
+
+    <!-- Author Information -->
+    <Author AuthorId="A001">
+        <Name>F. Scott Fitzgerald</Name>
+        <BirthYear>1896</BirthYear>
+        <Nationality>American</Nationality>
+    </Author>
+    <Author AuthorId="A002">
+        <Name>George Orwell</Name>
+        <BirthYear>1903</BirthYear>
+        <Nationality>British</Nationality>
+    </Author>
+    <Author AuthorId="A003">
+        <Name>Harper Lee</Name>
+        <BirthYear>1926</BirthYear>
+        <Nationality>American</Nationality>
+    </Author>   
+    <Author AuthorId="A004">
+        <Name>Jane Austen</Name>
+        <BirthYear>1775</BirthYear>
+        <Nationality>British</Nationality>
+    </Author>
+    <Author AuthorId="A005">
+        <Name>J.D. Salinger</Name>
+        <BirthYear>1919</BirthYear>
+        <Nationality>American</Nationality>
+    </Author>
+    <Author AuthorId="A006">
+        <Name>J.R.R. Tolkien</Name>
+        <BirthYear>1892</BirthYear>
+        <Nationality>British</Nationality>
+    </Author>  
+    <Author AuthorId="A007">
+        <Name>Ray Bradbury</Name>
+        <BirthYear>1920</BirthYear>
+        <Nationality>American</Nationality>
+    </Author>
+    <Author AuthorId="A008">
+        <Name>Mark Twain</Name>
+        <BirthYear>1835</BirthYear>
+        <Nationality>American</Nationality>
+    </Author>
+
+    <!-- Publisher Information -->
+    <Publisher PublisherId="PUB001">
+        <Name>Scribner</Name>
+        <FoundedYear>1846</FoundedYear>
+        <Country>USA</Country>
+    </Publisher>
+    <Publisher PublisherId="PUB002">
+        <Name>Penguin Books</Name>
+        <FoundedYear>1935</FoundedYear>
+        <Country>UK</Country>
+    </Publisher>
+    <Publisher PublisherId="PUB003">
+        <Name>HarperCollins</Name>
+        <FoundedYear>1989</FoundedYear>
+        <Country>USA</Country>
+    </Publisher>
+    <Publisher PublisherId="PUB004">
+        <Name>Random House</Name>
+        <FoundedYear>1927</FoundedYear>
+        <Country>USA</Country>
+    </Publisher>
+
+    <!-- Book Information -->
+    <Book BookId="B001" PublisherId="PUB001">
+        <Title>The Great Gatsby</Title>
+        <Price>10.99</Price>
+        <ISBN>978-3-16-148410-0</ISBN>
+    </Book>
+    <Book BookId="B002" PublisherId="PUB002">
+        <Title>1984</Title>
+        <Price>8.99</Price>
+        <ISBN>978-0-14-103614-4</ISBN>
+    </Book>
+    <Book BookId="B003" PublisherId="PUB003">
+        <Title>To Kill a Mockingbird</Title>
+        <Price>12.99</Price>
+        <ISBN>978-0-06-112008-4</ISBN>
+    </Book>
+    <Book BookId="B004" PublisherId="PUB001">
+        <Title>Pride and Prejudice</Title>
+        <Price>9.99</Price>
+        <ISBN>978-1-85326-000-1</ISBN>
+    </Book>
+    <Book BookId="B005" PublisherId="PUB002">
+        <Title>The Catcher in the Rye</Title>
+        <Price>11.99</Price>
+        <ISBN>978-0-316-76948-0</ISBN>
+    </Book>
+    <Book BookId="B006" PublisherId="PUB003">
+        <Title>The Hobbit</Title>
+        <Price>14.99</Price>
+        <ISBN>978-0-618-00221-3</ISBN>
+    </Book>
+    <Book BookId="B007" PublisherId="PUB001">
+        <Title>Fahrenheit 451</Title>
+        <Price>7.99</Price>
+        <ISBN>978-0-7432-4722-1</ISBN>
+    </Book>
+
+    <!-- Book Author Connections -->
+    <!-- Multiple books by one author -->
+    <B-A BookId="B008" AuthorId="A002"/>
+    <B-A BookId="B009" AuthorId="A002"/>
+    <B-A BookId="B011" AuthorId="A003"/>
+    <B-A BookId="B012" AuthorId="A003"/>
+
+    <!-- Multiple authors for one book -->
+    <B-A BookId="B010" AuthorId="A001"/>
+    <B-A BookId="B010" AuthorId="A002"/>
+    <B-A BookId="B010" AuthorId="A003"/>
+    <B-A BookId="B013" AuthorId="A004"/>
+    <B-A BookId="B013" AuthorId="A005"/>
+    <B-A BookId="B014" AuthorId="A006"/>
+    <B-A BookId="B014" AuthorId="A007"/>
+</BookStore>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Main structure -->
+  <xs:element name="BookStore">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Customers -->
+        <xs:element name="Customer" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="Email" type="EmailType" maxOccurs="unbounded"/>
+              <xs:element name="RegistrationDate" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute name="CustomerId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Profiles -->
+        <xs:element name="Profile" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="City" type="xs:string"/>
+                    <xs:element name="Street" type="xs:string"/>
+                    <xs:element name="Number" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="PhoneNumber" type="PhoneNumberType" maxOccurs="unbounded"/>
+              <xs:element name="PaymentMethod" type="PaymentMethodType" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="ProfileId" type="xs:string" use="required"/>
+            <xs:attribute name="CustomerId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Orders -->
+        <xs:element name="Order" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" type="xs:date"/>
+              <xs:element name="Status" type="StatusType"/>
+            </xs:sequence>
+            <xs:attribute name="OrderId" type="xs:string" use="required"/>
+            <xs:attribute name="CustomerId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Authors -->
+        <xs:element name="Author" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="BirthYear" type="YearType"/>
+              <xs:element name="Nationality" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="AuthorId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Publishers -->
+        <xs:element name="Publisher" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="FoundedYear" type="YearType"/>
+              <xs:element name="Country" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="PublisherId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Books -->
+        <xs:element name="Book" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" type="xs:string"/>
+              <xs:element name="Price" type="PriceType"/>
+              <xs:element name="ISBN" type="ISBNType"/>
+            </xs:sequence>
+            <xs:attribute name="BookId" type="xs:string" use="required"/>
+            <xs:attribute name="PublisherId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Book-Author Connections -->
+        <xs:element name="B-A" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="BookId" type="xs:string" use="required"/>
+            <xs:attribute name="AuthorId" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Custom simple types -->
+  <xs:simpleType name="EmailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ISBNType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="978-[0-9\-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PriceType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PaymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PhoneNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\s*\+1-[0-9\-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="YearType">
+    <xs:restriction base="xs:gYear">
+      <xs:maxInclusive value="2100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shipped"/>
+      <xs:enumeration value="Processing"/>
+      <xs:enumeration value="Delivered"/>
+      <xs:enumeration value="Cancelled"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
