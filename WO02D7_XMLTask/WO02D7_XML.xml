@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BookStore
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="WO02D7_XMLSchema.xsd"
+    xmlns="http://www.example.com/BookStore"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.com/BookStore WO02D7_XMLSchema.xsd"
 >
 
     <!-- Customer Information -->
@@ -188,6 +189,28 @@
         <Price>7.99</Price>
         <ISBN>978-0-7432-4722-1</ISBN>
     </Book>
+
+    <!-- Order Item Information -->
+    <OrderItem OrderItemId="OI001" OrderId="O001" BookId="B001">
+        <Quantity>1</Quantity>
+        <Total>10.99</Total>
+    </OrderItem>
+    <OrderItem OrderItemId="OI002" OrderId="O002" BookId="B002">
+        <Quantity>2</Quantity>
+        <Total>17.98</Total>
+    </OrderItem>
+    <OrderItem OrderItemId="OI003" OrderId="O003" BookId="B003">
+        <Quantity>1</Quantity>
+        <Total>12.99</Total>
+    </OrderItem>
+    <OrderItem OrderItemId="OI004" OrderId="O004" BookId="B004">
+        <Quantity>1</Quantity>
+        <Total>9.99</Total>
+    </OrderItem>
+    <OrderItem OrderItemId="OI005" OrderId="O005" BookId="B005">
+        <Quantity>3</Quantity>
+        <Total>35.97</Total>
+    </OrderItem>
 
     <!-- Book Author Connections -->
     <!-- Multiple books by one author -->
