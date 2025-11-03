@@ -112,6 +112,66 @@
         </xs:element>
       </xs:sequence>
     </xs:complexType>
+
+    <!-- Keys -->
+    <xs:key name="CustomerKey">
+      <xs:selector xpath="Customer"/>
+      <xs:field xpath="@CustomerId"/>
+    </xs:key>
+    <xs:key name="ProfileKey">
+      <xs:selector xpath="Profile"/>
+      <xs:field xpath="@ProfileId"/>
+    </xs:key>
+    <xs:key name="OrderKey">
+      <xs:selector xpath="Order"/>
+      <xs:field xpath="@OrderId"/>
+    </xs:key>
+    <xs:key name="AuthorKey">
+      <xs:selector xpath="Author"/>
+      <xs:field xpath="@AuthorId"/>
+    </xs:key>
+    <xs:key name="PublisherKey">
+      <xs:selector xpath="Publisher"/>
+      <xs:field xpath="@PublisherId"/>
+    </xs:key>
+    <xs:key name="BookKey">
+      <xs:selector xpath="Book"/>
+      <xs:field xpath="@BookId"/>
+    </xs:key>
+    <xs:key name="OrderItemKey">
+      <xs:selector xpath="OrderItem"/>
+      <xs:field xpath="@OrderItemId"/>
+    </xs:key>
+
+    <!-- Keyrefs -->
+    <xs:keyref name="ProfileCustomerRef" refer="CustomerKey">
+      <xs:selector xpath="Profile"/>
+      <xs:field xpath="@CustomerId"/>
+    </xs:keyref>
+    <xs:keyref name="OrderCustomerRef" refer="CustomerKey">
+      <xs:selector xpath="Order"/>
+      <xs:field xpath="@CustomerId"/>
+    </xs:keyref>
+    <xs:keyref name="BookPublisherRef" refer="PublisherKey">
+      <xs:selector xpath="Book"/>
+      <xs:field xpath="@PublisherId"/>
+    </xs:keyref>
+    <xs:keyref name="OrderItemOrderRef" refer="OrderKey">
+      <xs:selector xpath="OrderItem"/>
+      <xs:field xpath="@OrderId"/>
+    </xs:keyref>
+    <xs:keyref name="OrderItemBookRef" refer="BookKey">
+      <xs:selector xpath="OrderItem"/>
+      <xs:field xpath="@BookId"/>
+    </xs:keyref>
+    <xs:keyref name="BA_BookRef" refer="BookKey">
+      <xs:selector xpath="B-A"/>
+      <xs:field xpath="@BookId"/>
+    </xs:keyref>
+    <xs:keyref name="BA_AuthorRef" refer="AuthorKey">
+      <xs:selector xpath="B-A"/>
+      <xs:field xpath="@AuthorId"/>
+    </xs:keyref>
   </xs:element>
 
   <!-- Custom simple types -->
