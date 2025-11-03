@@ -5,7 +5,7 @@
 \usepackage{titlesec} % For customizing section titles
 \usepackage{ragged2e} % For justified text alignment
 \usepackage{setspace} % For line spacing
-\usepackage[margin=2.5cm]{geometry} % Margin settings
+\usepackage[margin=1.5cm]{geometry} % Margin settings
 \usepackage[hidelinks]{hyperref} % Enable hyperlinks in TOC
 \usepackage{graphicx}
 
@@ -18,118 +18,126 @@
   {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
 
 \begin{document}
-    \onehalfspacing % Set line spacing to 1.5
-    \justifying % Justify text alignment
+\onehalfspacing % Set line spacing to 1.5
+\justifying % Justify text alignment
 
-    \begin{titlepage}
-        \centering
-        \vspace*{0.25\textheight}
-        {\fontsize{64}{32}\bfseries Jegyzőkönyv \par}
-        \vspace{1.5em}
-        {\fontsize{25}{64}\normalfont Webes adatkezelő környezetek \par}
-        \vspace{1em}
-        {\fontsize{25}{32}\normalfont Féléves feladat \par}
-        \vspace{1em}
-        {\fontsize{25}{32}\normalfont Könyvesbolt \par}
-        \vspace*{0.20\textheight}
+\begin{titlepage}
+    \centering
+    \vspace*{0.25\textheight}
+    {\fontsize{64}{32}\bfseries Jegyzőkönyv \par}
+    \vspace{1.5em}
+    {\fontsize{25}{64}\normalfont Webes adatkezelő környezetek \par}
+    \vspace{1em}
+    {\fontsize{25}{32}\normalfont Féléves feladat \par}
+    \vspace{1em}
+    {\fontsize{25}{32}\normalfont Könyvesbolt \par}
+    \vspace*{0.20\textheight}
 
-        \begin{flushright}
-            \begin{tabular}{@{}l@{}}
-                {\fontsize{14}{14}\normalfont Készítette: Orosz Péter} \\
-                {\fontsize{14}{14}\normalfont Neptun kód: WO02D7} \\
-                {\fontsize{14}{14}\normalfont Dátum: 2025. December} \\
-            \end{tabular}
-        \end{flushright}
-    \end{titlepage}
+    \begin{flushright}
+        \begin{tabular}{@{}l@{}}
+            {\fontsize{14}{14}\normalfont Készítette: Orosz Péter} \\
+            {\fontsize{14}{14}\normalfont Neptun kód: WO02D7} \\
+            {\fontsize{14}{14}\normalfont Dátum: 2025. December} \\
+        \end{tabular}
+    \end{flushright}
+\end{titlepage}
 
-    \tableofcontents
-    \newpage
+\tableofcontents
 
-    \section*{Bevezetés}
-    \addcontentsline{toc}{section}{Bevezetés}
+\newpage
+\section*{Bevezetés}
+\addcontentsline{toc}{section}{Bevezetés}
 
-    \section*{A feladat leírása}
-    \addcontentsline{toc}{section}{A feladat leírása}
+A modern webes alkalmazások egyik alapvető feladata az adatok hatékony kezelése és tárolása. Az XML (Extensible Markup Language) széles körben elterjedt formátum strukturált adatok leírására, cseréjére és validálására, különösen olyan rendszerekben, ahol a platformfüggetlenség és az adatok áttekinthetősége kiemelt szempont. A jelen jegyzőkönyv célja bemutatni egy könyvesbolt adatkezelő rendszerének tervezését és megvalósítását XML alapokon, az adatmodellezéstől kezdve az XML dokumentum és séma elkészítésén át a Java nyelvű feldolgozásig. A dokumentum lépésről lépésre ismerteti az adatbázis tervezésének folyamatát, az XML-re optimalizált modell kialakítását, valamint az adatok kezelését DOM Parser segítségével.
 
-    \section{Könyvesbolt}
-  \subsection{Az adatbázis ER modell tervezése}
-    Az adatbázis szerkezetét az ER diagram szemlélteti (lásd az 1. ábrát), amelyben az entitások, attribútumok és kapcsolatok kerültek megtervezésre. Az ER modell célja, hogy áttekinthetően ábrázolja az adatbázis logikai felépítését, a főbb adatcsoportokat és azok összefüggéseit.
+\section*{A feladat leírása}
+\addcontentsline{toc}{section}{A feladat leírása}
 
-    Az ER modell tervezése során először azokat a főbb adatcsoportokat (entitásokat) azonosítottam, amelyek a könyváruház működéséhez szükségesek: vevők (Customer), profilok (Profile), rendelések (Order), rendelési tételek (OrderItem), könyvek (Book), szerzők (Author) és kiadók (Publisher). Ezeket a valós üzleti folyamatok alapján választottam ki, figyelembe véve, hogy milyen információkat kell tárolni és milyen kapcsolatokat kell kezelni közöttük.
+A féléves feladat célja egy könyvesbolt adatainak modellezése, tárolása és feldolgozása XML technológiák alkalmazásával. A feladat során első lépésként meg kell tervezni az adatbázis ER modelljét, amely tartalmazza a könyvesbolt működéséhez szükséges főbb entitásokat (vevők, profilok, rendelések, rendelési tételek, könyvek, szerzők, kiadók) és azok kapcsolatait. Az ER modell alapján el kell készíteni az XML-re optimalizált XDM modellt, majd ennek megfelelően létre kell hozni egy mintaként szolgáló XML dokumentumot, amely tartalmazza a könyvesbolt adatait. Az XML dokumentum szerkezetének validálásához XMLSchema-t kell készíteni, amely meghatározza az adatok típusát, kötelező mezőit és kapcsolatait. Végül Java nyelven, DOM Parser segítségével kell megvalósítani az adatok beolvasását, feldolgozását és táblázatos megjelenítését, demonstrálva az XML alapú adatkezelés gyakorlati alkalmazását.
 
-    Az entitásokhoz hozzárendeltem a szükséges attribútumokat, például a vevőhöz nevet, email címet és regisztrációs dátumot, a könyvhöz címet, árat és ISBN-t. A kapcsolatok meghatározásánál ügyeltem arra, hogy a valós kapcsolatok (pl. egy vevő több rendelést is leadhat, egy könyvet több szerző is írhat) helyesen jelenjenek meg az adatmodellben. Az összetett kapcsolatokhoz (pl. Book-Author) kapcsolótáblát (B-A) terveztem.
+\newpage
+\section{Az adatbázis tervezése és megvalósítása XML-ben}
 
-    Az ER diagram elkészítéséhez először papíron vázlatot készítettem, majd digitálisan, diagramkészítő eszközzel rajzoltam meg a végleges változatot, amelyet az alábbi ábrán mutatok be.
+\subsection{Az adatbázis ER modell tervezése}
+Az adatbázis szerkezetét az ER diagram szemlélteti (lásd az 1. ábrát), amelyben az entitások, attribútumok és kapcsolatok kerültek megtervezésre. Az ER modell célja, hogy áttekinthetően ábrázolja az adatbázis logikai felépítését, a főbb adatcsoportokat és azok összefüggéseit.
 
-    \begin{figure}[h!]
-      \centering
-      \includegraphics[width=0.85\textwidth]{WO02D7_ER.jpg}
-      \caption{Az adatbázis ER diagramja}
-    \end{figure}
+Az ER modell tervezése során először azokat a főbb adatcsoportokat (entitásokat) azonosítottam, amelyek a könyváruház működéséhez szükségesek: vevők (Customer), profilok (Profile), rendelések (Order), rendelési tételek (OrderItem), könyvek (Book), szerzők (Author) és kiadók (Publisher). Ezeket a valós üzleti folyamatok alapján választottam ki, figyelembe véve, hogy milyen információkat kell tárolni és milyen kapcsolatokat kell kezelni közöttük.
 
-    \subsubsection*{Entitások és attribútumaik}
-  \begin{center}
-  \begin{tabular}{|l|l|l|l|}
-  \hline
-  	\textbf{Entitás} & \textbf{Főkulcs} & \textbf{Idegen kulcs(ok)} & \textbf{Attribútum(ok) (típus)} \\
-  \hline
-  Profile & ProfileId & CustomerId & Address: City (egyszeres) \\
-   &  &  & Address: Street (egyszeres) \\
-   &  &  & Address: Number (egyszeres) \\
-   &  &  & PhoneNumber (többszörös) \\
-   &  &  & PaymentMethod (többszörös) \\
-  \hline
-  Customer & CustomerId & -- & Name (egyszeres) \\
-   &  &  & Email (többszörös) \\
-   &  &  & RegistrationDate (egyszeres) \\
-  \hline
-  Order & OrderId & CustomerId & Date (egyszeres) \\
-   &  &  & Status (egyszeres) \\
-  \hline
-  OrderItem & OrderItemId & OrderId, BookId & Quantity (egyszeres) \\
-   &  &  & Total (egyszeres) \\
-  \hline
-  Book & BookId & PublisherId & Title (egyszeres) \\
-   &  &  & Price (egyszeres) \\
-   &  &  & ISBN (egyszeres) \\
-  \hline
-  Author & AuthorId & -- & Name (egyszeres) \\
-   &  &  & BirthYear (egyszeres) \\
-   &  &  & Nationality (egyszeres) \\
-  \hline
-  B-A & -- & BookId, AuthorId & -- \\
-  \hline
-  Publisher & PublisherId & -- & Name (egyszeres) \\
-   &  &  & FoundedYear (egyszeres) \\
-   &  &  & Country (egyszeres) \\
-  \hline
-  \end{tabular}
-  \end{center}
+Az entitásokhoz hozzárendeltem a szükséges attribútumokat, például a vevőhöz nevet, email címet és regisztrációs dátumot, a könyvhöz címet, árat és ISBN-t. A kapcsolatok meghatározásánál ügyeltem arra, hogy a valós kapcsolatok (pl. egy vevő több rendelést is leadhat, egy könyvet több szerző is írhat) helyesen jelenjenek meg az adatmodellben. Az összetett kapcsolatokhoz (pl. Book-Author) kapcsolótáblát (B-A) terveztem.
 
-  \subsection{Az adatbázis konvertálása XDM modellre}
-    Az ER diagram alapján elkészült az XDM modell (lásd a 2. ábrát), amely az adatszerkezetet XML-re optimalizált formában mutatja be. Az XDM modell segíti az XML dokumentum struktúrájának megtervezését, figyelembe véve az adatok hierarchiáját és összefüggéseit.
+Az ER diagram elkészítéséhez először papíron vázlatot készítettem, majd digitálisan, diagramkészítő eszközzel rajzoltam meg a végleges változatot, amelyet az alábbi ábrán mutatok be.
 
-    Az XDM modell elkészítésekor az ER diagram entitásait és kapcsolatait kellett úgy átalakítanom, hogy azok megfeleljenek az XML hierarchikus szerkezetének. Első lépésként meghatároztam, hogy mely entitások lesznek főbb gyökérelemek (pl. Customer, Book), és melyek lesznek beágyazott vagy hivatkozott elemek (pl. Order, OrderItem).
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.85\textwidth]{WO02D7_ER.jpg}
+  \caption{Az adatbázis ER diagramja}
+\end{figure}
 
-    Az ER modell relációs szerkezetét át kellett alakítani úgy, hogy az XML-ben a kapcsolatok vagy beágyazással, vagy attribútumként történő hivatkozással jelenjenek meg. Például a rendelési tételeket (OrderItem) az adott rendelés (Order) alá helyeztem, és a könyvekre, szerzőkre hivatkozásokat attribútumként vagy külön elemként jelenítettem meg.
+\newpage
+\subsubsection*{Entitások és attribútumaik}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+    \textbf{Entitás} & \textbf{Főkulcs} & \textbf{Idegen kulcs(ok)} & \textbf{Attribútum(ok) (típus)} \\
+\hline
+Profile & ProfileId & CustomerId & Address: City (egyszeres) \\
+ &  &  & Address: Street (egyszeres) \\
+ &  &  & Address: Number (egyszeres) \\
+ &  &  & PhoneNumber (többszörös) \\
+ &  &  & PaymentMethod (többszörös) \\
+\hline
+Customer & CustomerId & -- & Name (egyszeres) \\
+ &  &  & Email (többszörös) \\
+ &  &  & RegistrationDate (egyszeres) \\
+\hline
+Order & OrderId & CustomerId & Date (egyszeres) \\
+ &  &  & Status (egyszeres) \\
+\hline
+OrderItem & OrderItemId & OrderId, BookId & Quantity (egyszeres) \\
+ &  &  & Total (egyszeres) \\
+\hline
+Book & BookId & PublisherId & Title (egyszeres) \\
+ &  &  & Price (egyszeres) \\
+ &  &  & ISBN (egyszeres) \\
+\hline
+Author & AuthorId & -- & Name (egyszeres) \\
+ &  &  & BirthYear (egyszeres) \\
+ &  &  & Nationality (egyszeres) \\
+\hline
+B-A & -- & BookId, AuthorId & -- \\
+\hline
+Publisher & PublisherId & -- & Name (egyszeres) \\
+ &  &  & FoundedYear (egyszeres) \\
+ &  &  & Country (egyszeres) \\
+\hline
+\end{tabular}
+\end{center}
 
-    A modell készítése során törekedtem arra, hogy az adatok logikusan, könnyen feldolgozható módon jelenjenek meg az XML-ben, és a későbbi validálás is egyszerű legyen. A végleges XDM modellt szintén diagramkészítő eszközzel rajzoltam meg.
+\newpage
+\subsection{Az adatbázis konvertálása XDM modellre}
+Az ER diagram alapján elkészült az XDM modell (lásd a 2. ábrát), amely az adatszerkezetet XML-re optimalizált formában mutatja be. Az XDM modell segíti az XML dokumentum struktúrájának megtervezését, figyelembe véve az adatok hierarchiáját és összefüggéseit.
 
-    \begin{figure}[h!]
-      \centering
-      \includegraphics[width=0.85\textwidth]{WO02D7_XDM.jpg}
-      \caption{Az adatbázis XDM modellje}
-    \end{figure}
+Az XDM modell elkészítésekor az ER diagram entitásait és kapcsolatait kellett úgy átalakítanom, hogy azok megfeleljenek az XML hierarchikus szerkezetének. Első lépésként meghatároztam, hogy mely entitások lesznek főbb gyökérelemek (pl. Customer, Book), és melyek lesznek beágyazott vagy hivatkozott elemek (pl. Order, OrderItem).
 
-    \newpage
-    \subsection{Az XDM modell alapján XML dokumentum készítése}
-    Az XDM modellből kiindulva elkészült az XML dokumentum (lásd: \href{run:WO02D7_XML.xml}{\texttt{WO02D7\_XML.xml}}), amely az adatok tényleges tárolását biztosítja. Az XML fájlban az adatok a modellnek megfelelően hierarchikusan, jól strukturáltan jelennek meg.
+Az ER modell relációs szerkezetét át kellett alakítani úgy, hogy az XML-ben a kapcsolatok vagy beágyazással, vagy attribútumként történő hivatkozással jelenjenek meg. Például a rendelési tételeket (OrderItem) az adott rendelés (Order) alá helyeztem, és a könyvekre, szerzőkre hivatkozásokat attribútumként vagy külön elemként jelenítettem meg.
 
-    Az XML dokumentum elkészítéséhez először az XDM modell szerkezetét követtem, és meghatároztam a főbb elemeket és azok attribútumait. Az egyes entitásokhoz tartozó adatokat mintaként töltöttem ki, ügyelve arra, hogy minden kötelező mező szerepeljen, és a kapcsolatok (pl. rendelés és rendelési tételek, könyvek és szerzők) is megjelenjenek.
+A modell készítése során törekedtem arra, hogy az adatok logikusan, könnyen feldolgozható módon jelenjenek meg az XML-ben, és a későbbi validálás is egyszerű legyen. A végleges XDM modellt szintén diagramkészítő eszközzel rajzoltam meg.
 
-    Az XML szerkesztése során figyeltem arra, hogy a dokumentum jól olvasható, áttekinthető legyen, és megfeleljen az XDM modellben megadott hierarchiának. A dokumentumot Visual Studio Code-al készítettem el, majd ellenőriztem, hogy szintaktikailag helyes legyen.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.85\textwidth]{WO02D7_XDM.jpg}
+  \caption{Az adatbázis XDM modellje}
+\end{figure}
 
-    \begin{verbatim}
+\subsection{Az XDM modell alapján XML dokumentum készítése}
+Az XDM modellből kiindulva elkészült az XML dokumentum (lásd: \href{run:WO02D7_XML.xml}{\texttt{WO02D7\_XML.xml}}), amely az adatok tényleges tárolását biztosítja. Az XML fájlban az adatok a modellnek megfelelően hierarchikusan, jól strukturáltan jelennek meg.
+
+Az XML dokumentum elkészítéséhez először az XDM modell szerkezetét követtem, és meghatároztam a főbb elemeket és azok attribútumait. Az egyes entitásokhoz tartozó adatokat mintaként töltöttem ki, ügyelve arra, hogy minden kötelező mező szerepeljen, és a kapcsolatok (pl. rendelés és rendelési tételek, könyvek és szerzők) is megjelenjenek.
+
+Az XML szerkesztése során figyeltem arra, hogy a dokumentum jól olvasható, áttekinthető legyen, és megfeleljen az XDM modellben megadott hierarchiának. A dokumentumot Visual Studio Code-al készítettem el, majd ellenőriztem, hogy szintaktikailag helyes legyen.
+
+{\small
+\begin{verbatim}
 <?xml version="1.0" encoding="UTF-8"?>
 <BookStore>
   <Customer CustomerId="C001">
@@ -139,20 +147,23 @@
   </Customer>
   ...
 </BookStore>
-    \end{verbatim}
+\end{verbatim}
+}
 
-    Az XML dokumentum szerkezete lehetővé teszi több vevő, profil, rendelés, szerző, kiadó és könyv kezelését, valamint az adatok közötti kapcsolatok megjelenítését.
+Az XML dokumentum szerkezete lehetővé teszi több vevő, profil, rendelés, szerző, kiadó és könyv kezelését, valamint az adatok közötti kapcsolatok megjelenítését.
 
-    \subsection{Az XML dokumentum alapján XMLSchema készítése}
-    Az XML dokumentum szerkezetének validálásához elkészült az XMLSchema (lásd: \texttt{WO02D7\_XMLSchema.xsd}), amely meghatározza az elemek típusait, kötelező és opcionális mezőket, valamint az adatok közötti kapcsolatokat. Az XMLSchema biztosítja, hogy az XML dokumentum megfeleljen a kívánt szerkezeti és tartalmi követelményeknek.
+\newpage
+\subsection{Az XML dokumentum alapján XMLSchema készítése}
+Az XML dokumentum szerkezetének validálásához elkészült az XMLSchema (lásd: \texttt{WO02D7\_XMLSchema.xsd}), amely meghatározza az elemek típusait, kötelező és opcionális mezőket, valamint az adatok közötti kapcsolatokat. Az XMLSchema biztosítja, hogy az XML dokumentum megfeleljen a kívánt szerkezeti és tartalmi követelményeknek.
 
-    Az XMLSchema készítése során az XML dokumentum szerkezetét vettem alapul, és minden főbb elemhez (pl. Customer, Book, Order) létrehoztam a megfelelő komplex típusokat. Meghatároztam, hogy mely elemek kötelezőek, melyek ismétlődhetnek (pl. több email cím), és definiáltam az attribútumokat is.
+Az XMLSchema készítése során az XML dokumentum szerkezetét vettem alapul, és minden főbb elemhez (pl. Customer, Book, Order) létrehoztam a megfelelő komplex típusokat. Meghatároztam, hogy mely elemek kötelezőek, melyek ismétlődhetnek (pl. több email cím), és definiáltam az attribútumokat is.
 
-    Az adatok helyességének biztosítására egyedi típusokat (simpleType) is létrehoztam, például az email címekhez reguláris kifejezést használtam, hogy csak érvényes formátumú email címek legyenek elfogadva. Hasonló módon jártam el a telefonszámok, fizetési módok és státuszok esetében is, ahol szükséges volt.
+Az adatok helyességének biztosítására egyedi típusokat (simpleType) is létrehoztam, például az email címekhez reguláris kifejezést használtam, hogy csak érvényes formátumú email címek legyenek elfogadva. Hasonló módon jártam el a telefonszámok, fizetési módok és státuszok esetében is, ahol szükséges volt.
 
-    Az XMLSchema-t többször teszteltem az XML dokumentumra, hogy minden szerkezeti és tartalmi követelmény teljesüljön, és a validáció hibamentes legyen.
+Az XMLSchema-t többször teszteltem az XML dokumentumra, hogy minden szerkezeti és tartalmi követelmény teljesüljön, és a validáció hibamentes legyen.
 
-    \begin{verbatim}
+{\small
+\begin{verbatim}
 <xs:element name="Customer" maxOccurs="unbounded">
   <xs:complexType>
     <xs:sequence>
@@ -169,7 +180,112 @@
     <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
   </xs:restriction>
 </xs:simpleType>
-    \end{verbatim}
+\end{verbatim}
+}
 
-    Az XMLSchema részleteiben megtalálhatók az egyedi típusdefiníciók, mint például az email címek, telefonszámok, fizetési módok és státuszok mintái, amelyek biztosítják az adatok helyességét és konzisztenciáját.
+Az XMLSchema részleteiben megtalálhatók az egyedi típusdefiníciók, mint például az email címek, telefonszámok, fizetési módok és státuszok mintái, amelyek biztosítják az adatok helyességét és konzisztenciáját.
+
+\newpage
+\section{A DOM Parser használata Java-ban}
+
+\subsection{Adatolvasás}
+
+Az XML-ből történő adatolvasás a DOM Parser segítségével lépésről lépésre történik. Az alábbiakban bemutatom a folyamatot a legfontosabb kódrészletekkel és azok jelentőségével.
+
+\begin{enumerate}
+    \item \textbf{Az XML dokumentum betöltése és feldolgozása}
+
+    Először a program betölti az XML fájlt, majd DOM objektummá alakítja azt:
+    {\small
+    \begin{verbatim}
+File file = new File("WO02D7_XML.xml");
+DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+Document document = documentBuilder.parse(file);
+document.getDocumentElement().normalize();
+    \end{verbatim}
+    }
+    Ezek a sorok biztosítják, hogy az XML dokumentum beolvasásra és feldolgozásra kerüljön. A \texttt{normalize()} hívás eltávolítja a felesleges whitespace karaktereket, így az adatok feldolgozása egyszerűbb.
+
+    \item \textbf{A gyökérelem és gyermekelemek bejárása}
+
+    A program lekéri a gyökérelemet, majd végigiterál a közvetlen gyermekelemeken:
+    {\small
+    \begin{verbatim}
+Element root = document.getDocumentElement();
+NodeList children = root.getChildNodes();
+
+for (int i = 0; i < children.getLength(); i++) {
+    Node child = children.item(i);
+    if (child.getNodeType() == Node.ELEMENT_NODE) {
+        Element childElement = (Element) child;
+        // feldolgozás...
+    }
+}
+    \end{verbatim}
+    }
+    Ez a szerkezet biztosítja, hogy csak az elemtípusú (tag) node-okat dolgozzuk fel, így az XML szerkezetének minden fő entitása (pl. Customer, Profile, Order) külön-külön kezelhető.
+
+    \newpage
+    \item \textbf{Adatok kinyerése és táblázatos megjelenítése}
+
+    Minden entitás esetén a program először egyszer jeleníti meg a táblázat fejlécét, majd minden rekordot egy sorban ír ki. Például a vevők (Customer) esetén:
+    {\small
+    \begin{verbatim}
+if (!customerHeader) {
+    System.out.println("\n=== Customer Table ===");
+    System.out.printf("| %-12s | %-20s | %-60s | %-16s |%n", "CustomerId", "Name", "Emails", "RegistrationDate");
+    customerHeader = true;
+}
+String customerId = childElement.getAttribute("CustomerId");
+String name = childElement.getElementsByTagName("Name").item(0).getTextContent();
+NodeList emails = childElement.getElementsByTagName("Email");
+List<String> emailList = new ArrayList<>();
+for (int j = 0; j < emails.getLength(); j++) {
+    emailList.add(emails.item(j).getTextContent());
+}
+String registrationDate = childElement.getElementsByTagName("RegistrationDate").item(0).getTextContent();
+System.out.printf("| %-12s | %-20s | %-60s | %-16s |%n",
+    customerId,
+    name,
+    String.join(", ", emailList),
+    registrationDate
+);
+    \end{verbatim}
+    }
+    Itt látható, hogy az attribútumokat (\texttt{getAttribute}) és az al-elemek szövegét\\(\texttt{getElementsByTagName(...).item(0).getTextContent()}) külön-külön olvassuk ki. Az email címek többszörös előfordulása miatt egy listába gyűjtjük őket, majd összefűzzük.
+
+    \item \textbf{Többszörös előfordulású elemek kezelése}
+
+    Az olyan mezőknél, amelyek többször is előfordulhatnak (pl. Email, PhoneNumber, PaymentMethod), a program minden előfordulást kigyűjt egy listába:
+    {\small
+    \begin{verbatim}
+NodeList emails = childElement.getElementsByTagName("Email");
+List<String> emailList = new ArrayList<>();
+for (int j = 0; j < emails.getLength(); j++) {
+    emailList.add(emails.item(j).getTextContent());
+}
+    \end{verbatim}
+    }
+    Ez a megközelítés biztosítja, hogy minden adat megjelenjen a táblázatban, függetlenül attól, hány példányban szerepel az adott elem.
+
+    \item \textbf{Formázott, táblázatos megjelenítés}
+
+    Az adatok kiírása minden entitás esetén egységes, jól olvasható, táblázatos formában történik, például:
+    {\small
+    \begin{verbatim}
+System.out.printf("| %-12s | %-20s | %-60s | %-16s |%n", ...);
+    \end{verbatim}
+    }
+    Ez a formázás segíti az adatok áttekinthetőségét és a különböző entitások gyors összehasonlítását.
+\end{enumerate}
+
+Az adatolvasás során tehát a DOM Parser segítségével strukturáltan, táblázatosan jelennek meg az XML-ben tárolt adatok, minden entitás típusra külön-külön, a Java program logikáját követve.
+
+\newpage
+\subsection{Adat-lekérdezés}
+
+\newpage
+\subsection{Adat-módosítás}
+
 \end{document}
