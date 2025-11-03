@@ -1,0 +1,80 @@
+Root element: BookStore
+
+=== Customer Table ===
+| CustomerId   | Name                 | Emails                                                       | RegistrationDate |
+|--------------|----------------------|--------------------------------------------------------------|------------------|
+| C001         | John Doe             | john.doe@example.com, john.doe2@example.com                  | 2022-01-15       |
+| C002         | Jane Smith           | jane.smith@example.com, jane.smith2@example.com              | 2022-02-20       |
+| C003         | Emily Johnson        | emily.johnson@example.com, emily.johnson2@example.com        | 2022-03-10       |
+
+=== Profile Table ===
+| ProfileId  | CustomerId   | Address                        | PhoneNumbers                   | PaymentMethods                                                         |
+|------------|--------------|--------------------------------|--------------------------------|------------------------------------------------------------------------|
+| P001       | C001         | Springfield, 123 Main St 1A    | +1-555-1234, +1-555-5678       | 1234-5678-9012-3456, 9876-5432-1098-7654, 5678-1234-8765-4321          |
+| P002       | C002         | Shelbyville, 456 Elm St 2B     | +1-555-8765, +1-555-4321       | 2345-6789-0123-4567, 8765-4321-0987-6543, 6789-2345-9876-5432          |
+| P003       | C003         | Ogdenville, 789 Oak St 3C      | +1-555-2468, +1-555-1357       | 3456-7890-1234-5678, 9876-5432-1098-7654, 4567-8901-2345-6789          |
+
+=== Order Table ===
+| OrderId    | CustomerId   | Date         | Status     |
+|------------|--------------|--------------|------------|
+| O001       | C001         | 2022-05-01   | Shipped    |
+| O002       | C002         | 2022-06-15   | Processing |
+| O003       | C003         | 2022-07-20   | Delivered  |
+| O004       | C001         | 2022-08-05   | Cancelled  |
+| O005       | C002         | 2022-09-10   | Shipped    |
+| O006       | C003         | 2022-10-25   | Processing |
+
+=== Author Table ===
+| AuthorId   | Name                      | BirthYear  | Nationality     |
+|------------|---------------------------|------------|-----------------|
+| A001       | F. Scott Fitzgerald       | 1896       | American        |
+| A002       | George Orwell             | 1903       | British         |
+| A003       | Harper Lee                | 1926       | American        |
+| A004       | Jane Austen               | 1775       | British         |
+| A005       | J.D. Salinger             | 1919       | American        |
+| A006       | J.R.R. Tolkien            | 1892       | British         |
+| A007       | Ray Bradbury              | 1920       | American        |
+| A008       | Mark Twain                | 1835       | American        |
+
+=== Publisher Table ===
+| PublisherId  | Name                 | FoundedYear  | Country    |
+|--------------|----------------------|--------------|------------|
+| PUB001       | Scribner             | 1846         | USA        |
+| PUB002       | Penguin Books        | 1935         | UK         |
+| PUB003       | HarperCollins        | 1989         | USA        |
+| PUB004       | Random House         | 1927         | USA        |
+
+=== Book Table ===
+| BookId   | PublisherId  | Title                          | Price    | ISBN                 |
+|----------|--------------|--------------------------------|----------|----------------------|
+| B001     | PUB001       | The Great Gatsby               | 10.99$   | 978-3-16-148410-0    |
+| B002     | PUB002       | 1984                           | 8.99$    | 978-0-14-103614-4    |
+| B003     | PUB003       | To Kill a Mockingbird          | 12.99$   | 978-0-06-112008-4    |
+| B004     | PUB001       | Pride and Prejudice            | 9.99$    | 978-1-85326-000-1    |
+| B005     | PUB002       | The Catcher in the Rye         | 11.99$   | 978-0-316-76948-0    |
+| B006     | PUB003       | The Hobbit                     | 14.99$   | 978-0-618-00221-3    |
+| B007     | PUB001       | Fahrenheit 451                 | 7.99$    | 978-0-7432-4722-1    |
+
+=== OrderItem Table ===
+| OrderItemId  | OrderId    | BookId   | Quantity | Total    |
+|--------------|------------|----------|----------|----------|
+| OI001        | O001       | B001     | 1        | 10.99$   |
+| OI002        | O002       | B002     | 2        | 17.98$   |
+| OI003        | O003       | B003     | 1        | 12.99$   |
+| OI004        | O004       | B004     | 1        | 9.99$    |
+| OI005        | O005       | B005     | 3        | 35.97$   |
+
+=== Book-Author Connection Table ===
+| BookId   | AuthorId   |
+|----------|------------|
+| B008     | A002       |
+| B009     | A002       |
+| B011     | A003       |
+| B012     | A003       |
+| B010     | A001       |
+| B010     | A002       |
+| B010     | A003       |
+| B013     | A004       |
+| B013     | A005       |
+| B014     | A006       |
+| B014     | A007       |

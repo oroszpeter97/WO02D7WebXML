@@ -1,0 +1,19 @@
+Customers with more than one email:
+Customer ID: C001 has 2 emails.
+Customer ID: C002 has 2 emails.
+Customer ID: C003 has 2 emails.
+
+Books with price greater than 10.0:
+Book Title: The Great Gatsby, Price: 10.99, Publisher: Scribner, Founded: 1846, Country: USA
+Book Title: To Kill a Mockingbird, Price: 12.99, Publisher: HarperCollins, Founded: 1989, Country: USA
+Book Title: The Catcher in the Rye, Price: 11.99, Publisher: Penguin Books, Founded: 1935, Country: UK
+Book Title: The Hobbit, Price: 14.99, Publisher: HarperCollins, Founded: 1989, Country: USA
+
+Orders with status 'Shipped':
+Order ID: O001, Status: Shipped, Date: 2022-05-01, Customer: John Doe, Email: john.doe@example.com
+Order ID: O005, Status: Shipped, Date: 2022-09-10, Customer: Jane Smith, Email: jane.smith@example.com
+
+Authors with more than one book:
+Author: George Orwell has 3 books.
+Author: Harper Lee has 3 books.
+

@@ -285,6 +285,59 @@ Az adatolvasás során tehát a DOM Parser segítségével strukturáltan, tábl
 \newpage
 \subsection{Adat-lekérdezés}
 
+Az XML dokumentumban tárolt adatokra különböző lekérdezéseket valósítottam meg Java nyelven, DOM Parser segítségével. Ezek a lekérdezések a \texttt{WO02D7DomQuery.java} állományban külön metódusokként szerepelnek, és a program futásakor mind a konzolra, mind egy kimeneti fájlba (\texttt{WO02D7\_DomQueryOutput.txt}) kiírásra kerülnek. Az alábbiakban bemutatom a lekérdezések működését és tényleges eredményét.
+
+\begin{enumerate}
+    \item \textbf{Vevők, akiknek egynél több email címük van}
+
+    A \texttt{CustomersWithMoreThanOneEmail} metódus végigiterál az összes \texttt{Customer} elemen, megszámolja az egyes vevőkhöz tartozó \texttt{Email} elemeket, és csak azokat írja ki, akiknek több email címük is van. Az eredmény:
+    {\small
+    \begin{verbatim}
+Customers with more than one email:
+Customer ID: C001 has 2 emails.
+Customer ID: C002 has 2 emails.
+Customer ID: C003 has 2 emails.
+    \end{verbatim}
+    }
+
+    \item \textbf{Könyvek, amelyek ára meghalad egy adott értéket, kiadói adatokkal}
+
+    A \texttt{BooksWithPriceGreaterThan} metódus minden \texttt{Book} elem árát (\texttt{Price}) ellenőrzi, és ha az meghaladja a megadott küszöböt (itt: 10.0), akkor kiírja a könyv címét, árát, valamint a kapcsolódó kiadó nevét, alapítási évét és országát. Az aktuális kimenet:
+    {\small
+    \begin{verbatim}
+Books with price greater than 10.0:
+Book Title: The Great Gatsby, Price: 10.99, Publisher: Scribner, Founded: 1846, Country: USA
+Book Title: To Kill a Mockingbird, Price: 12.99, Publisher: HarperCollins, Founded: 1989, Country: USA
+Book Title: The Catcher in the Rye, Price: 11.99, Publisher: Penguin Books, Founded: 1935, Country: UK
+Book Title: The Hobbit, Price: 14.99, Publisher: HarperCollins, Founded: 1989, Country: USA
+    \end{verbatim}
+    }
+
+    \item \textbf{Rendelések adott státusszal, vevő és dátum adatokkal}
+
+    Az \texttt{OrdersWithStatus} metódus az összes \texttt{Order} elem közül csak azokat választja ki, amelyek státusza (pl. \texttt{Shipped}) megegyezik a keresett értékkel. A lekérdezés kiírja a rendelés azonosítóját, státuszát, dátumát, valamint a kapcsolódó vevő nevét és első email címét:
+    {\small
+    \begin{verbatim}
+Orders with status 'Shipped':
+Order ID: O001, Status: Shipped, Date: 2022-05-01, Customer: John Doe, Email: john.doe@example.com
+Order ID: O005, Status: Shipped, Date: 2022-09-10, Customer: Jane Smith, Email: jane.smith@example.com
+    \end{verbatim}
+    }
+
+    \item \textbf{Szerzők, akik egynél több könyvet írtak}
+
+    Az \texttt{AuthorsWithMoreThanOneBooks} metódus a \texttt{B-A} kapcsolóelemek alapján megszámolja, hogy egy szerző hány könyvhöz kapcsolódik, és csak azokat írja ki, akik legalább kettőhöz. Az aktuális eredmény:
+    {\small
+    \begin{verbatim}
+Authors with more than one book:
+Author: George Orwell has 3 books.
+Author: Harper Lee has 3 books.
+    \end{verbatim}
+    }
+\end{enumerate}
+
+A lekérdezések eredményei jól szemléltetik, hogy a DOM Parser segítségével nemcsak az adatok beolvasása, hanem összetettebb szűrések és kapcsolatok kezelése is könnyen megvalósítható Java nyelven.
+
 \newpage
 \subsection{Adat-módosítás}
 
