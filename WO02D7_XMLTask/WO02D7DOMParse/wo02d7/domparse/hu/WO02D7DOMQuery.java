@@ -12,7 +12,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-public class WO02D7DomQuery {
+public class WO02D7DOMQuery {
+    // Helper method to print to console and write to file
     private static void printAndWrite(BufferedWriter writer, String s) throws IOException {
         System.out.println(s);
         writer.write(s);
@@ -20,27 +21,37 @@ public class WO02D7DomQuery {
     }
 
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+        // Step 1: Load the XML file
         File file = new File("WO02D7_XML.xml");
+        // Step 2: Create a DocumentBuilderFactory and DocumentBuilder
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        // Step 3: Parse the XML file into a Document object
         Document document = documentBuilder.parse(file);
+        // Step 4: Normalize the XML structure
         document.getDocumentElement().normalize();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("WO02D7_DomQueryOutput.txt"))) {
+        // Step 5: Open output file for writing results
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("WO02D7_DOMQueryOutput.txt"))) {
+            // Step 6: Query and output customers with more than one email
             printAndWrite(writer, "Customers with more than one email:");
             printAndWrite(writer, CustomersWithMoreThanOneEmail(document));
 
+            // Step 7: Query and output books with price greater than 10.0
             printAndWrite(writer, "Books with price greater than 10.0:");
             printAndWrite(writer, BooksWithPriceGreaterThan(document, 10.0));
 
+            // Step 8: Query and output orders with status 'Shipped'
             printAndWrite(writer, "Orders with status 'Shipped':");
             printAndWrite(writer, OrdersWithStatus(document, "Shipped"));
 
+            // Step 9: Query and output authors with more than one book
             printAndWrite(writer, "Authors with more than one book:");
             printAndWrite(writer, AuthorsWithMoreThanOneBooks(document));
         }
     }
 
+    // Finds customers who have more than one email address
     public static String CustomersWithMoreThanOneEmail(Document document) {
         StringBuilder result = new StringBuilder();
         var customers = document.getElementsByTagName("Customer");
@@ -48,6 +59,7 @@ public class WO02D7DomQuery {
             var customer = customers.item(i);
             var emails = customer.getChildNodes();
             int emailCount = 0;
+            // Count the number of <Email> elements for each customer
             for (int j = 0; j < emails.getLength(); j++) {
                 var emailNode = emails.item(j);
                 if (emailNode.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE &&
@@ -63,6 +75,7 @@ public class WO02D7DomQuery {
         return result.toString();
     }
 
+    // Finds books with price greater than the given threshold and outputs publisher info
     public static String BooksWithPriceGreaterThan(Document document, double priceThreshold) {
         StringBuilder result = new StringBuilder();
         var books = document.getElementsByTagName("Book");
@@ -73,6 +86,7 @@ public class WO02D7DomQuery {
             if (price > priceThreshold) {
                 var titleNode = ((org.w3c.dom.Element) book).getElementsByTagName("Title").item(0);
                 String publisherId = ((org.w3c.dom.Element) book).getAttribute("PublisherId");
+                // Find publisher details by PublisherId
                 var publishers = document.getElementsByTagName("Publisher");
                 String publisherName = "";
                 String foundedYear = "";
@@ -97,6 +111,7 @@ public class WO02D7DomQuery {
         return result.toString();
     }
 
+    // Finds orders with the specified status and outputs customer info
     public static String OrdersWithStatus(Document document, String status) {
         StringBuilder result = new StringBuilder();
         var orders = document.getElementsByTagName("Order");
@@ -108,6 +123,7 @@ public class WO02D7DomQuery {
                 String customerId = order.getAttribute("CustomerId");
                 String orderDate = order.getElementsByTagName("Date").item(0).getTextContent();
 
+                // Find customer details by CustomerId
                 var customers = document.getElementsByTagName("Customer");
                 String customerName = "";
                 String customerEmail = "";
@@ -134,6 +150,7 @@ public class WO02D7DomQuery {
         return result.toString();
     }
 
+    // Finds authors who have written more than one book
     public static String AuthorsWithMoreThanOneBooks(Document document) {
         StringBuilder result = new StringBuilder();
         var authors = document.getElementsByTagName("Author");
@@ -142,6 +159,7 @@ public class WO02D7DomQuery {
             var author = (org.w3c.dom.Element) authors.item(i);
             String authorId = author.getAttribute("AuthorId");
             int bookCount = 0;
+            // Count the number of books for each author using B-A relationships
             for (int j = 0; j < baList.getLength(); j++) {
                 var ba = (org.w3c.dom.Element) baList.item(j);
                 if (ba.getAttribute("AuthorId").equals(authorId)) {

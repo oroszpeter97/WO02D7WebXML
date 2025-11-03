@@ -17,7 +17,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class WO02D7DomRead {
+public class WO02D7DOMRead {
     // Helper method to print to both console and file
     private static void printAndWrite(BufferedWriter writer, String s) throws IOException {
         System.out.println(s);
@@ -40,7 +40,7 @@ public class WO02D7DomRead {
         document.getDocumentElement().normalize();
 
         // Open output file for writing
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("WO02D7_DomReadOutput.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("WO02D7_DOMReadOutput.txt"))) {
 
             // Step 2: Print the root element name
             printAndWrite(writer, "Root element: " + document.getDocumentElement().getNodeName());

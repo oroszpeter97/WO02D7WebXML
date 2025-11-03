@@ -341,4 +341,50 @@ A lekérdezések eredményei jól szemléltetik, hogy a DOM Parser segítségév
 \newpage
 \subsection{Adat-módosítás}
 
+Az XML dokumentumban tárolt adatok módosítását szintén Java nyelven, DOM Parser segítségével valósítottam meg. Az adat-módosító műveletek a \texttt{WO02D7DOMModify.java} állományban külön metódusokként szerepelnek, és a program futásakor mind a konzolra, mind egy kimeneti fájlba (\texttt{WO02D7\_DOMModifyOutput.txt}) kiírásra kerülnek. Az alábbiakban bemutatom a legfontosabb módosítási műveleteket és azok működését.
+
+\begin{enumerate}
+    \item \textbf{Új vevő hozzáadása}
+
+    Az \texttt{AddNewCustomer} metódus egy új \texttt{Customer} elemet hoz létre, amelyhez automatikusan generál egyedi \texttt{CustomerId}-t, valamint egy hozzá tartozó \texttt{Profile} elemet is. A metódus paraméterként kapja meg a vevő nevét és email címét, majd az XML dokumentum végéhez illeszti az új elemeket. A regisztráció dátuma automatikusan a mai nap lesz.
+
+    {\small
+    \begin{verbatim}
+printAndWrite(writer, AddNewCustomer(document, "Aurelia Starling", "aurelia.starling@example.com"));
+    \end{verbatim}
+    }
+
+    \item \textbf{Könyv árának módosítása}
+
+    Az \texttt{UpdateBookPrice} metódus megkeresi a megadott \texttt{BookId}-val rendelkező könyvet, majd módosítja annak \texttt{Price} elemét az új értékre. Ha a könyv vagy az ár elem nem található, a metódus hibaüzenetet ad vissza.
+
+    {\small
+    \begin{verbatim}
+printAndWrite(writer, UpdateBookPrice(document, "B001", 29.99));
+    \end{verbatim}
+    }
+
+    \item \textbf{Szerző és kapcsolódó könyvek törlése}
+
+    A \texttt{RemoveAuthor} metódus eltávolítja a megadott \texttt{AuthorId}-val rendelkező szerzőt, valamint az összes olyan \texttt{B-A} kapcsolóelemet, amely ehhez a szerzőhöz tartozik. Azok a könyvek, amelyekhez a törölt szerzőn kívül már nem tartozik más szerző, szintén törlésre kerülnek az XML-ből.
+
+    {\small
+    \begin{verbatim}
+printAndWrite(writer, RemoveAuthor(document, "A002"));
+    \end{verbatim}
+    }
+
+    \item \textbf{Új email cím hozzáadása vevőhöz}
+
+    Az \texttt{AddNewCustomerEmail} metódus megkeresi a megadott \texttt{CustomerId}-val rendelkező vevőt, majd hozzáad egy új \texttt{Email} elemet a megadott email címmel. A metódus visszajelzést ad a művelet sikerességéről vagy sikertelenségéről.
+
+    {\small
+    \begin{verbatim}
+printAndWrite(writer, AddNewCustomerEmail(document, "C001", "john.new@example.com"));
+    \end{verbatim}
+    }
+\end{enumerate}
+
+Az adat-módosítási műveletek során a DOM Parser lehetővé teszi az XML dokumentum szerkezetének dinamikus módosítását, új elemek beszúrását, meglévő elemek módosítását vagy törlését. A módosítások után a program a változtatásokat mind a konzolra, mind egy kimeneti fájlba írja, így a felhasználó azonnal visszajelzést kap az elvégzett műveletekről.
+
 \end{document}

@@ -1,0 +1,11 @@
+Adding new customer:
+New customer added: Aurelia Starling (CustomerId: C004, ProfileId: P004)
+
+Updating book price: 
+Book price updated: B001 to 29.99
+
+Removing author:
+Author removed: A002 and associated books (if no other authors) removed.
+
+Add new customer email:
+New email added to customer C001: john.new@example.com
