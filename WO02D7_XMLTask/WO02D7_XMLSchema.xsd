@@ -172,6 +172,27 @@
       <xs:selector xpath="B-A"/>
       <xs:field xpath="@AuthorId"/>
     </xs:keyref>
+
+    <!-- Unique constraints -->
+    <xs:unique name="UniqueEmail">
+      <xs:selector xpath="Customer/Email"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+
+    <xs:unique name="UniqueISBN">
+      <xs:selector xpath="Book/ISBN"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+
+    <xs:unique name="UniquePhoneNumber">
+      <xs:selector xpath="Profile/PhoneNumber"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+
+    <xs:unique name="UniquePaymentMethod">
+      <xs:selector xpath="Profile/PaymentMethod"/>
+      <xs:field xpath="."/>
+    </xs:unique>
   </xs:element>
 
   <!-- Custom simple types -->
