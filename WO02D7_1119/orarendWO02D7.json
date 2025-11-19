@@ -1,0 +1,136 @@
+{
+	"OP_orarend": {
+		"ora": [
+			{
+				"targy": "Web Technológia 1.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "V. EA.",
+				"oktato": "Agárdi Anita",
+				"szak": "Programtervező Informatikus",
+				"_id": "egy",
+				"_tipus": "elmelet"
+			},
+			{
+				"targy": "Valószínűség Számítás",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "XV. EA.",
+				"oktato": "Fegyverneki Sándor",
+				"szak": "Programtervező Informatikus",
+				"_id": "ketto",
+				"_tipus": "eloadas"
+			},
+			{
+				"targy": "Web Technológia 1.",
+				"idopont": {
+					"nap": "Hétfő",
+					"tol": "14:00",
+					"ig": "16:00"
+				},
+				"helyszin": "In/101",
+				"oktato": "Agárdi Anita",
+				"szak": "Programtervező Informatikus",
+				"_id": "harom",
+				"_tipus": "gyakorlat"
+			},
+			{
+				"targy": "Mesterséges Intelligencia",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "08:00",
+					"ig": "10:00"
+				},
+				"helyszin": "XXXII. EA.",
+				"oktato": "Kunné Dr. Tamás Judit",
+				"szak": "Programtervező Informatikus",
+				"_id": "negy",
+				"_tipus": "eloadas"
+			},
+			{
+				"targy": "Mesterséges Intelligencia",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "XXXII. EA.",
+				"oktato": "Fazekas Levente Áron",
+				"szak": "Programtervező Informatikus",
+				"_id": "ot",
+				"_tipus": "gyakorlat"
+			},
+			{
+				"targy": "Valószínűség Számítás",
+				"idopont": {
+					"nap": "Kedd",
+					"tol": "12:00",
+					"ig": "14:00"
+				},
+				"helyszin": "A/1 316.",
+				"oktato": "Tóth Norbert",
+				"szak": "Programtervező Informatikus",
+				"_id": "hat",
+				"_tipus": "gyakorlat"
+			},
+			{
+				"targy": "Adatkezelés XML-ben",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "08:00",
+					"ig": "10:00"
+				},
+				"helyszin": "A/1 310.",
+				"oktato": "Kovács József",
+				"szak": "Programtervező Informatikus",
+				"_id": "het",
+				"_tipus": "eloadas"
+			},
+			{
+				"targy": "Adatkezelés XML-ben",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "10:00",
+					"ig": "12:00"
+				},
+				"helyszin": "In/103",
+				"oktato": "Bednarik László",
+				"szak": "Programtervező Informatikus",
+				"_id": "nyolc",
+				"_tipus": "eloadas"
+			},
+			{
+				"targy": "Vállalati Információs Rendszerek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "14:00",
+					"ig": "16:00"
+				},
+				"helyszin": "In/103",
+				"oktato": "Dr. Sasvári Péter László",
+				"szak": "Programtervező Informatikus",
+				"_id": "kilenc",
+				"_tipus": "eloadas"
+			},
+			{
+				"targy": "Vállalati Információs Rendszerek",
+				"idopont": {
+					"nap": "Szerda",
+					"tol": "18:00",
+					"ig": "20:00"
+				},
+				"helyszin": "In/103",
+				"oktato": "Dr. Sasvári Péter László",
+				"szak": "Programtervező Informatikus",
+				"_id": "tiz",
+				"_tipus": "gyakorlat"
+			}
+		]
+	}
+}

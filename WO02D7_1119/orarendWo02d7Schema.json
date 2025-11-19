@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Órarend Schema",
+    "type": "object",
+    "properties": {
+      "OP_orarend": {
+        "type": "object",
+        "properties": {
+          "ora": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "targy": { "type": "string" },
+                "idopont": {
+                  "type": "object",
+                  "properties": {
+                    "nap": {
+                      "type": "string",
+                      "enum": ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"]
+                    },
+                    "tol": {
+                      "type": "string",
+                      "pattern": "^[0-2][0-9]:[0-5][0-9]$"
+                    },
+                    "ig": {
+                      "type": "string",
+                      "pattern": "^[0-2][0-9]:[0-5][0-9]$"
+                    }
+                  },
+                  "required": ["nap", "tol", "ig"]
+                },
+                "helyszin": { "type": "string" },
+                "oktato": { "type": "string" },
+                "szak": { "type": "string" },
+                "_id": { "type": "string" },
+                "_tipus": {
+                  "type": "string",
+                  "enum": ["eloadas", "elmelet", "gyakorlat"]
+                }
+              },
+              "required": ["targy", "idopont", "helyszin", "oktato", "szak", "_id", "_tipus"]
+            }
+          }
+        },
+        "required": ["ora"]
+      }
+    },
+    "required": ["OP_orarend"]
+  }
+  

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="WO02D7_orarend.xsd">
+    <student id = "01">
+        <keresztnev>Péter</keresztnev>
+        <vezeteknev>Orosz</vezeteknev>
+        <becenev>Peti</becenev>
+        <kor>27</kor>
+    </student>
+    <student id = "02">
+        <keresztnev>Dóra</keresztnev>
+        <vezeteknev>Balogh</vezeteknev>
+        <becenev>Dorci</becenev>
+        <kor>30</kor>
+    </student>
+    <student id = "03">
+        <keresztnev>Bianka</keresztnev>
+        <vezeteknev>Bencze</vezeteknev>
+        <becenev>Bius</becenev>
+        <kor>28</kor>
+    </student>
+</class>
